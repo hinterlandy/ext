@@ -47,23 +47,20 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-async function start() {
-  try {
-    await refreshWhitelist();
-    console.log('Whitelist loaded');
-  } catch (err) {
-    console.error('Initial whitelist load failed:', err);
-  }
+function start() {
+  server.listen(port, '0.0.0.0', () => {
+    console.log(`Listening on 0.0.0.0:${port}`);
+  });
+
+  refreshWhitelist()
+    .then(() => console.log('Whitelist loaded'))
+    .catch((err) => console.error('Initial whitelist load failed:', err));
 
   setInterval(() => {
     refreshWhitelist().catch((err) => {
       console.error('Scheduled whitelist refresh failed:', err);
     });
   }, REFRESH_INTERVAL_MS);
-
-  server.listen(port, '0.0.0.0', () => {
-    console.log(`Listening on 0.0.0.0:${port}`);
-  });
 }
 
 start();
