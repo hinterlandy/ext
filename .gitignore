@@ -1,0 +1,11 @@
+# Minimal Render deploy repo — only track heartbeat + stable-channel
+*
+!.gitignore
+!render.yaml
+!RENDER.md
+!scripts/
+!scripts/**
+!cj/
+!cj/**
+!mv3.minimal.logic.md/
+!mv3.minimal.logic.md/**
