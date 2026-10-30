@@ -7,7 +7,7 @@ services:
     runtime: node
     rootDir: mv3.minimal.logic.md
     region: oregon
-    plan: starter
+    plan: free
     buildCommand: npm install --omit=dev
     startCommand: npm start
     healthCheckPath: /
@@ -18,7 +18,7 @@ services:
     runtime: node
     rootDir: cj
     region: oregon
-    plan: starter
+    plan: free
     buildCommand: npm install --omit=dev
     startCommand: npm start
     healthCheckPath: /
