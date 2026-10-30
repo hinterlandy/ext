@@ -1,0 +1,25 @@
+# Render Blueprint — heartbeat + stable-channel (same Node workers as Zeabur)
+# Connect this repo in Render Dashboard → New → Blueprint, or sync via API (see RENDER.md).
+
+services:
+  - type: web
+    name: stable-channel
+    runtime: node
+    rootDir: mv3.minimal.logic.md
+    region: oregon
+    plan: starter
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: commit
+
+  - type: web
+    name: heartbeat
+    runtime: node
+    rootDir: cj
+    region: oregon
+    plan: starter
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: commit
