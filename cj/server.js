@@ -23,6 +23,17 @@ function writeResponseHeaders(res, headers) {
 }
 
 const server = http.createServer(async (req, res) => {
+  const pathOnly = req.url?.split('?')[0];
+  if (
+    pathOnly === '/health' &&
+    (req.method === 'GET' || req.method === 'HEAD')
+  ) {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(req.method === 'HEAD' ? undefined : '{"ok":true}');
+    return;
+  }
+
   try {
     const host = req.headers.host ?? 'localhost';
     const body = await readBody(req);
