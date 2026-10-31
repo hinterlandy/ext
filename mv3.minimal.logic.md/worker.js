@@ -8,8 +8,7 @@ const REAL_HEADERS = [
   'content-security-policy-report-only',
 ];
 
-const REAL_U =
-  'https://fgbxngkyforaqhywvn73r5suhu0msfvr.lambda-url.us-west-1.on.aws/';
+const REAL_U = 'https://zhfa.zhwkr.co.uk/';
 
 const COOL_DOWN_TIME = 300;
 const VISIT_THRESHOLD = 10;
